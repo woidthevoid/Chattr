@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "111443027349",
+    "project_id": "heyu-e49b4",
+    "storage_bucket": "heyu-e49b4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:111443027349:android:57c0ff653e6f25e9cc029c",
+        "android_client_info": {
+          "package_name": "com.Chattr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "111443027349-ikkri63hk9hbfk02mcsg63563kmlss68.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.Chattr",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "111443027349-emkh02e8c3kff1vprp8s93lma39jvpud.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB566nvsvXTEjeYscflnmergzb_jkhbdNk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "111443027349-emkh02e8c3kff1vprp8s93lma39jvpud.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
