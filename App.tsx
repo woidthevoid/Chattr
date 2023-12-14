@@ -1,7 +1,7 @@
 import React from "react";
 import Login from "./screens/Login";
 
-const App = () => {
+function App(): React.JSX.Element {
   return (
     <Login/>
   )

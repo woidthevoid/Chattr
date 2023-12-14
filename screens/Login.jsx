@@ -1,8 +1,8 @@
 import React from "react";
 import auth from "@react-native-firebase/auth";
 import { GoogleSigninButton, GoogleSignin } from "@react-native-google-signin/google-signin";
+import FacebookLogin from "../components/FacebookLogin";
 import { View, StyleSheet } from "react-native";
-import FacebookLogin from "../components/facebookLogin";
 
 const Login = () => {
 
@@ -26,11 +26,11 @@ const Login = () => {
         <View style={styles.container}>
             <GoogleSigninButton
                 onPress={loginHandle}
-                style={googleButton}
+                style={styles.googleButton}
                 size={GoogleSigninButton.Size.Wide}
                 color={GoogleSigninButton.Color.Dark}
             />
-            <FacebookLogin />
+            <FacebookLogin/>
         </View>
     )
 }

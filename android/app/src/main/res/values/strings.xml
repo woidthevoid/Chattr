@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Chattr</string>
+    <string name="facebook_app_id">866240191657968</string>
+    <string name="facebook_client_token">00d322c0f5572ea589f8d930106f003a</string>
 </resources>
