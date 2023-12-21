@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:111443027349:android:57c0ff653e6f25e9cc029c",
         "android_client_info": {
-          "package_name": "com.Chattr"
+          "package_name": "com.chattr"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "111443027349-ikkri63hk9hbfk02mcsg63563kmlss68.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.Chattr",
+            "package_name": "com.chattr",
             "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
           }
         },

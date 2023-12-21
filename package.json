@@ -10,8 +10,10 @@
     "test": "jest"
   },
   "dependencies": {
+    "@expo/vector-icons": "^13.0.0",
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/native-stack": "^6.9.17",
+    "expo-font": "^11.6.0",
     "react": "18.2.0",
     "react-native": "0.73.0",
     "react-native-fbsdk-next": "^12.1.2",
