@@ -6,6 +6,7 @@ import { View, StyleSheet } from "react-native";
 
 const Login = () => {
 
+    //For some reason, google login isnt working but facebook login does. 
     GoogleSignin.configure({
         webClientId: '111443027349-emkh02e8c3kff1vprp8s93lma39jvpud.apps.googleusercontent.com'
     });
