@@ -19,11 +19,11 @@ const Chat = () => {
         }
     };
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         navigation.setOptions({
             headerRight: () => {
                 <TouchableOpacity style={{ marginRight: 10 }} onPress={handleLogout}>
-                    <Icon name="logout" size={24} color='#C5C5C7' style={{ marginRight: 10 }} />
+                    <Icon name="logout" size={24} style={{ marginRight: 15 }} />
                 </TouchableOpacity>
             }
         });
@@ -58,15 +58,16 @@ const Chat = () => {
         });
     }, []);
     
+    const user = auth().currentUser.uid;
     return (
         <GiftedChat 
         messages={messages}
         showAvatarForEveryMessage={false}
-        showUserAvatar={false}
+        showUserAvatar={true}
         messageContainerRef={{backgroundColor: '#fff'}}
         textInputStyle={{backgroundColor: '#fff', borderRadius: 20,}}
         onSend={messages => onSend(messages)}
-        user={{_id: auth?.currentUser?.uid, avatar: auth?.currentUser?.photoUrl}}/>
+        user={{_id: user, avatar: 'https://i.pravatar.cc/300'}}/>
     )
 }
 
