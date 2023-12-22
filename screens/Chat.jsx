@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useLayoutEffect, useCallback } from "react";
-import { TouchableOpacity, Text } from "react-native";
+import { TouchableOpacity, Text, View } from "react-native";
 import firestore from '@react-native-firebase/firestore';
-import { Avatar, GiftedChat } from "react-native-gifted-chat";
+import { Send, GiftedChat } from "react-native-gifted-chat";
 import auth from '@react-native-firebase/auth';
 import { useNavigation } from "@react-navigation/native";
-import Icon from 'react-native-vector-icons/AntDesign';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Chat = () => {
     const [messages, setMessages] = useState([]);
@@ -19,13 +19,13 @@ const Chat = () => {
         }
     };
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         navigation.setOptions({
-            headerRight: () => {
+            headerRight: () => (
                 <TouchableOpacity style={{ marginRight: 10 }} onPress={handleLogout}>
-                    <Icon name="logout" size={24} style={{ marginRight: 15 }} />
+                    <Icon name="sign-out" size={24} style={{ marginRight: 15 }} />
                 </TouchableOpacity>
-            }
+            )
         });
     }, [navigation]);
 
@@ -49,7 +49,7 @@ const Chat = () => {
     const onSend = useCallback((messages = []) => {
         setMessages(previousMessages => GiftedChat.append(previousMessages, messages));
 
-        const {_id, createdAt, text, user} = messages[0];
+        const { _id, createdAt, text, user } = messages[0];
         firestore().collection('chats').add({
             _id,
             createdAt,
@@ -57,17 +57,47 @@ const Chat = () => {
             user
         });
     }, []);
-    
+
+    const renderSend = (props) => {
+        return (
+            <Send {...props}>
+                <View style={{ flexDirection: 'row' }}>
+                    <Icon
+                        name="paperclip"
+                        style={{
+                            marginBottom: 10,
+                            marginRight: 10,
+                            transform: [{ rotateY: '180deg' }],
+                        }}
+                        size={25}
+                        color='blue'
+                        tvParallaxProperties={undefined} />
+
+                    <Icon
+                        name="send"
+                        style={{ marginBottom: 10, marginRight: 10 }}
+                        size={25}
+                        color='orange'
+                        tvParallaxProperties={undefined} />
+                </View>
+            </Send>
+        )
+    }
+
     const user = auth().currentUser.uid;
     return (
-        <GiftedChat 
-        messages={messages}
-        showAvatarForEveryMessage={false}
-        showUserAvatar={true}
-        messageContainerRef={{backgroundColor: '#fff'}}
-        textInputStyle={{backgroundColor: '#fff', borderRadius: 20,}}
-        onSend={messages => onSend(messages)}
-        user={{_id: user, avatar: 'https://i.pravatar.cc/300'}}/>
+        <GiftedChat
+            messages={messages}
+            showAvatarForEveryMessage={false}
+            showUserAvatar={true}
+            messageContainerRef={{ backgroundColor: '#fff' }}
+            textInputStyle={{ backgroundColor: '#fff', borderRadius: 20, }}
+            onSend={messages => onSend(messages)}
+            user={{ _id: user, avatar: 'https://i.pravatar.cc/300' }}
+            renderSend={renderSend}
+            alwaysShowSend={true}
+            scrollToBottom
+             />
     )
 }
 

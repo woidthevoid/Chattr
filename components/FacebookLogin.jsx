@@ -1,7 +1,8 @@
 import React from "react";
-import { Button } from "react-native";
+import { Button, TouchableOpacity, Text } from "react-native";
 import auth from "@react-native-firebase/auth";
 import { LoginManager, AccessToken } from "react-native-fbsdk-next";
+import Icon from 'react-native-vector-icons/Entypo';
 
 const FacebookLogin = () => {
     async function onFacebookButtonPress() {
@@ -23,11 +24,26 @@ const FacebookLogin = () => {
     }
 
     return (
-        <Button
+        <TouchableOpacity
+            style={{
+                height: 50,
+                width: 220,
+                backgroundColor: '#4267B2',
+                borderRadius: 8,
+                justifyContent: 'center',
+                alignItems: 'center',
+                flexDirection: 'row',
+                marginTop: 10,
+            }}
             onPress={onFacebookButtonPress}
-            title="Facebook Sign-In"
-        />
+        >
+            <Icon name="facebook" size={30} color="#fff" />
+            <Text style={{ color: '#fff', fontSize: 16, marginLeft: 10 }}>
+                Sign in with Facebook
+            </Text>
+        </TouchableOpacity>
     )
 }
 
 export default FacebookLogin;
+

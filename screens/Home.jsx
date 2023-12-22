@@ -15,12 +15,12 @@ const Home = () => {
                 <Icon name="user" size={24} />
             ),
         })
-    }, []);
+    }, [navigation]);
 
     return (
         <View style={styles.container}>
             <TouchableOpacity
-                onPress={navigation.navigate('Chat')}
+                onPress={() => navigation.navigate('Chat')}
                 style={styles.chatButton}>
                 <Icon name="wechat" size={24} color={"#FAFAFA"} />
             </TouchableOpacity>
