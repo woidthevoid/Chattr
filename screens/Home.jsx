@@ -6,6 +6,7 @@ import Icon from "react-native-vector-icons/AntDesign";
 const Home = () => {
     const navigation = useNavigation();
 
+    //has no actual use at the moment besides looking pretty
     useEffect(() => {
         navigation.setOptions({
             headerLeft: () => (
@@ -17,6 +18,7 @@ const Home = () => {
         })
     }, [navigation]);
 
+    //A button to push and navigate to the chat, with a icon from vector icons
     return (
         <View style={styles.container}>
             <TouchableOpacity

@@ -7,9 +7,12 @@ import { useNavigation } from "@react-navigation/native";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Chat = () => {
+
+    //define message state
     const [messages, setMessages] = useState([]);
     const navigation = useNavigation();
 
+    //function to logout user with a button
     const handleLogout = async () => {
         try {
             await auth().signOut();
@@ -19,6 +22,7 @@ const Chat = () => {
         }
     };
 
+    //logout button with icon from vector icons 
     useLayoutEffect(() => {
         navigation.setOptions({
             headerRight: () => (
@@ -29,6 +33,7 @@ const Chat = () => {
         });
     }, [navigation]);
 
+    //Get messages stored in firestore and update state
     useLayoutEffect(() => {
         const collectionRef = firestore().collection('chats');
         const unsubscribe = collectionRef
@@ -46,6 +51,7 @@ const Chat = () => {
         return unsubscribe;
     }, []);
 
+    //Function for sending message and creating a new doc in firestore
     const onSend = useCallback((messages = []) => {
         setMessages(previousMessages => GiftedChat.append(previousMessages, messages));
 
@@ -58,6 +64,7 @@ const Chat = () => {
         });
     }, []);
 
+    //Renders a send icon and icon for future implementing a image upload
     const renderSend = (props) => {
         return (
             <Send {...props}>
@@ -84,6 +91,7 @@ const Chat = () => {
         )
     }
 
+    //Using GiftedChat component for making the chat and populating with messages. 
     const user = auth().currentUser.uid;
     return (
         <GiftedChat

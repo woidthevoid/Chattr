@@ -8,8 +8,11 @@ import auth from "@react-native-firebase/auth";
 import { ActivityIndicator, View } from "react-native";
 
 const Stack = createNativeStackNavigator();
+
+//Context to manage user info
 const AuthenticatedUserContext = createContext({});
 
+//Create provider for above function, setting state for user
 const AuthenticatedUserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   return (
@@ -19,6 +22,7 @@ const AuthenticatedUserProvider = ({ children }) => {
   )
 }
 
+//Stack for authenticated user
 function ChatStack() {
   return (
     <Stack.Navigator initialRouteName="Home">
@@ -28,6 +32,7 @@ function ChatStack() {
   )
 }
 
+//Stack for unauthenticated
 function AuthStack() {
   return (
     <Stack.Navigator>
@@ -36,6 +41,7 @@ function AuthStack() {
   )
 }
 
+//Defining main navigation logic based on wherever a user is authenticated or not. 
 function RootNavigator() {
   const { user, setUser } = useContext(AuthenticatedUserContext);
   const [loading, setLoading] = useState(true);
@@ -49,6 +55,7 @@ function RootNavigator() {
     };
   }, [user]);
 
+  // Display activity indicator if loading
   if (loading) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>

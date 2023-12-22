@@ -4,6 +4,7 @@ import auth from "@react-native-firebase/auth";
 import { LoginManager, AccessToken } from "react-native-fbsdk-next";
 import Icon from 'react-native-vector-icons/Entypo';
 
+//A login button for facebook, using facebook sdk and login manager. 
 const FacebookLogin = () => {
     async function onFacebookButtonPress() {
         const result = await LoginManager.logInWithPermissions(['public_profile', 'email']);
@@ -23,6 +24,7 @@ const FacebookLogin = () => {
         return auth().signInWithCredential(facebookCredential);
     }
 
+    //Returning a button with facebook logo, color and function for login
     return (
         <TouchableOpacity
             style={{
