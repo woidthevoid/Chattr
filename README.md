@@ -1,5 +1,5 @@
 This is a simple chat app called Chattr, developed with React Native.
-It is using Firebase for authentication and storing messages.
+It is using Firebase for authentication and storing messages in Firestore.
 The chat functionality is implemented using the package react-native-gifted-chat. 
 App is not fully developed and cant take multiple chat sessions.
 Android part is the only part working at the moment!
