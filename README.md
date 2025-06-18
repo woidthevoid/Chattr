@@ -33,6 +33,7 @@ At demonstrere evner inden for mobiludvikling, real-time databaser og autentifik
 ---
 
 ## Struktur
+```
 Chattr/
 ├── components/         # UI-komponenter
 ├── screens/            # Views (ChatScreen, LoginScreen)
@@ -41,21 +42,20 @@ Chattr/
 ├── package.json
 ├── android/ / ios/     # Plattformsspecifik kode
 └── README.md
-
+```
 ---
 
 ## Run
 
-1. Installer afhængigheder  
+- Installer afhængigheder  
    ```bash
    yarn install
    ```
+- Opsæt Firebase-projekt og Facebook-login
+  - Tilføj google-services.json (Android) i android/app/
+  - Konfigurer Facebook App og opdater firebaseConfig.js
 
-   2.	Opsæt Firebase-projekt og Facebook-login
-	•	Tilføj google-services.json (Android) i android/app/
-	•	Konfigurer Facebook App og opdater firebaseConfig.js
-
- 	3.	Kør på Android:
+- Kør på Android:
      ```bash
      yarn android
      ```
